@@ -42,31 +42,35 @@ class ZipArchiver
 
         $archive         = new ZipArchive;
         $archiveFileName = $this->findArchiveFileName($filePrefix);
-        $folderPath      = Str::beforeLast($archiveFileName, '/');
-        if ($folderPath != $archiveFileName) {
-            $this->storage->createDirectory($folderPath);
-        }
+        $this->ensureDirectoryExists($archiveFileName);
+
         if (!empty($files)
             && $archive->open($this->storage->path($archiveFileName), ZipArchive::CREATE) === true
         ) {
-            if (is_callable($this->archiveCreationCallback)) {
-                call_user_func_array($this->archiveCreationCallback, [
-                    $archive,
-                    $files,
-                    $this->storage,
-                ]);
-            } else {
-                foreach ($files as $file) {
-                    $archive->addFile($file);
-                }
-            }
-
+            $this->addFilesToArchive($archive, $files);
             if ($archive->close()) {
                 return $archiveFileName;
             }
         }
 
         return null;
+    }
+
+    protected function addFilesToArchive(ZipArchive $archive, array $files): ZipArchive
+    {
+        if ($this->archiveCreationCallback && is_callable($this->archiveCreationCallback)) {
+            call_user_func_array($this->archiveCreationCallback, [
+                $archive,
+                $files,
+                $this->storage,
+            ]);
+        } else {
+            foreach ($files as $file) {
+                $archive->addFile($file);
+            }
+        }
+
+        return $archive;
     }
 
     protected function findArchiveFileName(string $filePrefix): string
@@ -85,5 +89,13 @@ class ZipArchiver
         }
 
         return $archiveFileName;
+    }
+
+    protected function ensureDirectoryExists(string $archiveFileName): void
+    {
+        $folderPath      = Str::beforeLast($archiveFileName, '/');
+        if ($folderPath != $archiveFileName) {
+            $this->storage->createDirectory($folderPath);
+        }
     }
 }
