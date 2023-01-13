@@ -94,7 +94,7 @@ class ZipArchiver
     protected function ensureDirectoryExists(string $archiveFileName): void
     {
         $folderPath      = Str::beforeLast($archiveFileName, '/');
-        if ($folderPath != $archiveFileName) {
+        if ($folderPath != $archiveFileName && !$this->storage->directoryExists($folderPath)) {
             $this->storage->createDirectory($folderPath);
         }
     }
