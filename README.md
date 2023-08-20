@@ -1,11 +1,11 @@
 # Laravel download util.
 
-[![Packagist License](https://img.shields.io/packagist/l/yaroslawww/laravel-download-util?color=%234dc71f)](https://github.com/yaroslawww/laravel-download-util/blob/main/LICENSE.md)
-[![Packagist Version](https://img.shields.io/packagist/v/yaroslawww/laravel-download-util)](https://packagist.org/packages/yaroslawww/laravel-download-util)
-[![Total Downloads](https://img.shields.io/packagist/dt/yaroslawww/laravel-download-util)](https://packagist.org/packages/yaroslawww/laravel-download-util)
-[![Build Status](https://scrutinizer-ci.com/g/yaroslawww/laravel-download-util/badges/build.png?b=main)](https://scrutinizer-ci.com/g/yaroslawww/laravel-download-util/build-status/main)
-[![Code Coverage](https://scrutinizer-ci.com/g/yaroslawww/laravel-download-util/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/yaroslawww/laravel-download-util/?branch=main)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yaroslawww/laravel-download-util/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/yaroslawww/laravel-download-util/?branch=main)
+![Packagist License](https://img.shields.io/packagist/l/think.studio/laravel-download-util?color=%234dc71f)
+[![Packagist Version](https://img.shields.io/packagist/v/think.studio/laravel-download-util)](https://packagist.org/packages/think.studio/laravel-download-util)
+[![Total Downloads](https://img.shields.io/packagist/dt/think.studio/laravel-download-util)](https://packagist.org/packages/think.studio/laravel-download-util)
+[![Build Status](https://scrutinizer-ci.com/g/dev-think-one/laravel-download-util/badges/build.png?b=main)](https://scrutinizer-ci.com/g/dev-think-one/laravel-download-util/build-status/main)
+[![Code Coverage](https://scrutinizer-ci.com/g/dev-think-one/laravel-download-util/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/dev-think-one/laravel-download-util/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dev-think-one/laravel-download-util/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/dev-think-one/laravel-download-util/?branch=main)
 
 Util to create download archive.
 
@@ -14,7 +14,7 @@ Util to create download archive.
 Install the package via composer:
 
 ```shell
-composer require yaroslawww/laravel-download-util
+composer require think.studio/laravel-download-util
 ```
 
 Optionally you can publish the config file with:
